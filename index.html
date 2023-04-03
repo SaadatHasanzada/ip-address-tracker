@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Links -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+  <script defer src="app.js"></script>
+  <!--  -->
+  <title> IP Address Tracker</title>
+</head>
+<body>
+
+  <!-- Input -->
+
+<div class="upper-body">
+  <h1>IP Address Tracker</h1>
+ <div class="input">
+  <input type="text" placeholder="Search for any IP address or domain">
+  <div class="button">
+    <img src="./images/icon-arrow.svg" alt="">
+  </div>
+ </div>
+</div>
+
+<!-- map -->
+
+
+<div id="map"></div>
+
+<!-- info -->
+
+<div class="info">
+
+   <div class="ip_info">
+    <h5>IP ADDRESS</h5>
+    <span class="ip">8.8.8.8</span>
+    </div>
+    <div class="location_info">
+    <H5>LOCATION</H5>
+    <span class="locate">US California 94035</span>
+    </div>
+    <div class="time_info">
+    <H5>TIMEZONE</H5>
+    <span class="time">-07:00</span>
+    </div>
+    <div class="isp_info">
+    <H5>ISP</H5>
+    <span class="isp">Google LLC</span>
+    </div>
+</div>
+
+<!--  -->
+</body>
+</html>
