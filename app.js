@@ -8,20 +8,19 @@ const key='at_hOAiLmWr4DRNtsRSuDdy1VezzlurP';
 
 
 
-// Create map
+
 const map = L.map('map').setView([40.4063387, 49.8225675], 13);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-// When page loads show user ip info
+
 fetch('https://api.ipify.org')
 .then((res)=>res.text())
 .then((ip)=>{
 input.value=ip;
 getUrl();
-// console.log(ip)
 })
 
 
@@ -41,8 +40,11 @@ input.addEventListener('keyup',(e)=>{
 
 
 async function getUrl(){
+    const checkIpAddress=/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+    const checkDomain=/^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,6}$/i;
     try{
-        const res= await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${key}&ipAddress=${input.value}`);
+        const res= await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${key}&${checkIpAddress.test(input.value) ? `ipAddress=${input.value}`: checkDomain.test(input.value) ? `domain=${input.value}` : "" }`);
+        
         const url=await res.json();
         console.log(url)
         ip.innerHTML=url.ip;
